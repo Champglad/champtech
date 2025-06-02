@@ -1,40 +1,363 @@
-<!-- ======= Services Section ======= -->
-<section id="services" style="padding: 40px 0;">
-  <div class="container">
-    <h2 style="text-align: center; margin-bottom: 30px;">Our Services</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-      <!-- Service 1 -->
-      <div class="service-card" onclick="window.location.href='#computer-repairs'" 
-           style="border: 1px solid #e0e0e0; padding: 25px; border-radius: 5px; transition: all 0.3s ease; cursor: pointer;">
-        <h3 style="color: #2c3e50;">Computer Repairs</h3>
-        <p style="color: #666;">Motherboard-level servicing for laptops and desktops</p>
-        <button style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 3px; margin-top: 10px;">
-          Learn More →
-        </button>
-      </div>
-      
-      <!-- Service 2 -->
-      <div class="service-card" onclick="window.location.href='#network-setup'"
-           style="border: 1px solid #e0e0e0; padding: 25px; border-radius: 5px; transition: all 0.3s ease; cursor: pointer;">
-        <h3 style="color: #2c3e50;">Network Setup</h3>
-        <p style="color: #666;">Office WiFi and printer configuration</p>
-        <button style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 3px; margin-top: 10px;">
-          Learn More →
-        </button>
-      </div>
-      
-      <!-- Add 4 more services following the same pattern -->
-    </div>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Champglad Technology Limited offers professional ICT services including computer repairs, network setup, and more. Based in Lagos, Nigeria.">
+  <meta name="keywords" content="ICT services, computer repair, network setup, Lagos IT company">
+  <meta name="author" content="Champglad Technology Limited">
+  <title>Champglad Technology Limited</title>
 
-<script>
-// Add smooth scrolling to service links
-document.querySelectorAll('.service-card').forEach(card => {
-  card.addEventListener('click', function() {
-    const targetId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
-    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-  });
-});
-</script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #0d47a1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1565c0;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url('https://via.placeholder.com/1200x400?text=ICT+Solutions+for+Business') no-repeat center center/cover;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      z-index: 1;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      color: #0d47a1; 
+      font-size: 2.5em;
+      font-weight: bold;
+      padding: 20px;
+    }
+
+    section#services,
+    section#about,
+    section#contact {
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      border: 1px solid #e0e0e0;
+      padding: 25px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background-color: white;
+    }
+
+    .service-card h3 {
+      color: #0d47a1;
+    }
+
+    .service-card p {
+      color: #666;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    section.service-details {
+      margin-top: 40px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .form-control {
+      margin-bottom: 15px;
+    }
+
+    .form-control label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    form button {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #form-success {
+      display: none;
+      text-align: center;
+      color: green;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      margin-top: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Champglad Technology Limited</h1>
+  </header>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-text">Empowering Businesses with Technology</div>
+  </div>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2 style="text-align:center;">Our Services</h2>
+      <div class="service-grid">
+        <div class="service-card" data-target="#computer-repairs">
+          <h3>💻 Computer Repairs</h3>
+          <p>Motherboard-level servicing for laptops and desktops.</p>
+          <button>Learn More →</button>
+        </div>
+        <div class="service-card" data-target="#network-setup">
+          <h3>📶 Network Setup</h3>
+          <p>Office WiFi and printer configuration services.</p>
+          <button>Learn More →</button>
+        </div>
+        <div class="service-card" data-target="#software-support">
+          <h3>🛠️ Software Support</h3>
+          <p>Windows/Linux OS installation, antivirus removal, software troubleshooting.</p>
+          <button>Learn More →</button>
+        </div>
+        <div class="service-card" data-target="#data-recovery">
+          <h3>💾 Data Recovery</h3>
+          <p>Data retrieval from failed drives, formatted devices, or corrupted systems.</p>
+          <button>Learn More →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details Sections -->
+  <div class="container">
+    <section id="computer-repairs" class="service-details">
+      <h3>💻 Computer Repairs</h3>
+      <p>We offer motherboard-level servicing for laptops and desktops. Our experts fix hardware issues like:
+        <ul>
+          <li>Laptop screen replacement</li>
+          <li>Hard drive recovery</li>
+          <li>Power supply and charging port repairs</li>
+          <li>Overheating and fan replacement</li>
+        </ul>
+      </p>
+    </section>
+
+    <section id="network-setup" class="service-details">
+      <h3>📶 Network Setup</h3>
+      <p>We help you set up reliable internet access and shared printing in offices:</p>
+      <ul>
+        <li>WiFi router configuration</li>
+        <li>LAN/WAN setup</li>
+        <li>Shared printer setup</li>
+        <li>Firewall and security optimization</li>
+      </ul>
+    </section>
+
+    <section id="software-support" class="service-details">
+      <h3>🛠️ Software Support</h3>
+      <p>From operating system installation to software troubleshooting, we’ve got you covered:</p>
+      <ul>
+        <li>Windows/Linux OS installation</li>
+        <li>Antivirus & malware removal</li>
+        <li>Software updates and license activation</li>
+        <li>Email and office suite setup</li>
+      </ul>
+    </section>
+
+    <section id="data-recovery" class="service-details">
+      <h3>💾 Data Recovery</h3>
+      <p>Recover lost files from damaged or corrupted storage devices:</p>
+      <ul>
+        <li>Hard drive recovery</li>
+        <li>Formatted USB/SD card recovery</li>
+        <li>RAID and NAS recovery</li>
+        <li>File backup and transfer</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Champglad Technology Limited is a CAC-registered company (RC: 1530856) based in Computer Village, Ikeja, Lagos. We specialize in delivering reliable, affordable, and professional ICT services for schools, businesses, and organizations across Nigeria.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/champglad@gmail.com"  method="POST">
+        <div class="form-control">
+          <label>Your Name</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-control">
+          <label>Your Email</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-control">
+          <label>Message</label>
+          <textarea name="message" required></textarea>
+        </div>
+        <div style="text-align: center;">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+
+      <div id="form-success">Thank you! We'll get back to you soon.</div>
+
+      <div style="text-align:center;margin-top:30px;">
+        <p><strong>Or reach us directly:</strong></p>
+        <p>📧 champglad@gmail.com | 📞 07066193090</p>
+        <p>📍 8 Ola Ayeni Street, Computer Village, Ikeja, Lagos</p>
+        <a href="https://wa.me/2347066193090"  target="_blank" class="whatsapp-button">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <script>
+      document.write('&copy; ' + new Date().getFullYear() + ' Champglad Technology Limited. All rights reserved.');
+    </script>
+  </footer>
+
+  <!-- Live Chat - Tawk.to -->
+  <script>
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6655f2ec9a809f19fb2f2d4f/1hv0d1v4h'; 
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Form Success Message
+    const form = document.querySelector('form');
+    const success = document.getElementById('form-success');
+    form?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
