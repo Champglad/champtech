@@ -29,6 +29,9 @@
       background-color: #1565c0;
       text-align: center;
       padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
@@ -36,10 +39,15 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #bbdefb;
     }
 
     .hero {
-      background: url('https://via.placeholder.com/1200x400?text=ICT+Solutions+for+Business') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
       height: 300px;
       position: relative;
       display: flex;
@@ -53,23 +61,24 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background-color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 1;
     }
 
     .hero-text {
       position: relative;
       z-index: 2;
-      color: #0d47a1; 
+      color: white; 
       font-size: 2.5em;
       font-weight: bold;
       padding: 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
 
     section#services,
     section#about,
     section#contact {
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
     .container {
@@ -81,67 +90,76 @@
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 30px;
+      margin-top: 40px;
     }
 
     .service-card {
       border: 1px solid #e0e0e0;
-      padding: 25px;
-      border-radius: 5px;
+      padding: 30px;
+      border-radius: 8px;
       transition: all 0.3s ease;
       cursor: pointer;
       background-color: white;
+      text-align: center;
     }
 
     .service-card h3 {
       color: #0d47a1;
+      margin-top: 15px;
     }
 
     .service-card p {
       color: #666;
+      margin-bottom: 20px;
     }
 
     .service-card:hover {
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     section.service-details {
       margin-top: 40px;
       background-color: white;
       padding: 30px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
     }
 
     form {
       background: white;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto;
     }
 
     .form-control {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .form-control label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      font-weight: bold;
     }
 
     input[type="text"],
     input[type="email"],
+    input[type="tel"],
+    select,
     textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       border: 1px solid #ddd;
       border-radius: 4px;
+      font-family: inherit;
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 150px;
     }
 
     form button {
@@ -152,20 +170,40 @@
       border-radius: 4px;
       cursor: pointer;
       font-size: 16px;
+      font-weight: bold;
+      width: 100%;
+      transition: background 0.3s;
     }
 
-    #form-success {
-      display: none;
-      text-align: center;
-      color: green;
-      font-size: 1.2em;
+    form button:hover {
+      background: #c0392b;
+    }
+
+    #form-status {
       margin-top: 20px;
+      padding: 15px;
+      border-radius: 4px;
+      text-align: center;
+      display: none;
+    }
+
+    .success {
+      background: #d4edda;
+      color: #155724;
+      display: block !important;
+    }
+
+    .error {
+      background: #f8d7da;
+      color: #721c24;
+      display: block !important;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      background-color: #eee;
+      padding: 30px;
+      background-color: #0d47a1;
+      color: white;
     }
 
     .whatsapp-button {
@@ -173,15 +211,32 @@
       margin-top: 20px;
       background: #25D366;
       color: white;
-      padding: 12px 20px;
+      padding: 12px 25px;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
+      transition: transform 0.3s;
     }
 
-    @media (max-width: 600px) {
-      .service-grid {
-        grid-template-columns: 1fr;
+    .whatsapp-button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Service icons */
+    .service-icon {
+      font-size: 3em;
+      margin-bottom: 15px;
+      color: #0d47a1;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 2em;
+      }
+      
+      nav a {
+        display: block;
+        margin: 10px 0;
       }
     }
   </style>
@@ -190,6 +245,7 @@
 
   <header>
     <h1>Champglad Technology Limited</h1>
+    <p>RC: 1530856 | Professional ICT Solutions</p>
   </header>
 
   <nav>
@@ -206,25 +262,34 @@
   <section id="services">
     <div class="container">
       <h2 style="text-align:center;">Our Services</h2>
+      <p style="text-align:center; max-width: 700px; margin: 0 auto 30px;">Comprehensive IT solutions tailored to your needs</p>
+      
       <div class="service-grid">
         <div class="service-card" data-target="#computer-repairs">
-          <h3>💻 Computer Repairs</h3>
+          <div class="service-icon">💻</div>
+          <h3>Computer Repairs</h3>
           <p>Motherboard-level servicing for laptops and desktops.</p>
           <button>Learn More →</button>
         </div>
+        
         <div class="service-card" data-target="#network-setup">
-          <h3>📶 Network Setup</h3>
+          <div class="service-icon">📶</div>
+          <h3>Network Setup</h3>
           <p>Office WiFi and printer configuration services.</p>
           <button>Learn More →</button>
         </div>
+        
         <div class="service-card" data-target="#software-support">
-          <h3>🛠️ Software Support</h3>
-          <p>Windows/Linux OS installation, antivirus removal, software troubleshooting.</p>
+          <div class="service-icon">🛠️</div>
+          <h3>Software Support</h3>
+          <p>Windows/Linux OS installation, antivirus removal.</p>
           <button>Learn More →</button>
         </div>
+        
         <div class="service-card" data-target="#data-recovery">
-          <h3>💾 Data Recovery</h3>
-          <p>Data retrieval from failed drives, formatted devices, or corrupted systems.</p>
+          <div class="service-icon">💾</div>
+          <h3>Data Recovery</h3>
+          <p>Data retrieval from failed drives or corrupted systems.</p>
           <button>Learn More →</button>
         </div>
       </div>
@@ -235,95 +300,142 @@
   <div class="container">
     <section id="computer-repairs" class="service-details">
       <h3>💻 Computer Repairs</h3>
-      <p>We offer motherboard-level servicing for laptops and desktops. Our experts fix hardware issues like:
-        <ul>
-          <li>Laptop screen replacement</li>
-          <li>Hard drive recovery</li>
-          <li>Power supply and charging port repairs</li>
-          <li>Overheating and fan replacement</li>
-        </ul>
-      </p>
+      <p>We offer comprehensive repair services for all computer brands:</p>
+      <ul>
+        <li><strong>Screen Replacement:</strong> Cracked or faulty displays</li>
+        <li><strong>Keyboard Repairs:</strong> Sticky or non-responsive keys</li>
+        <li><strong>Motherboard Repair:</strong> Component-level diagnostics</li>
+        <li><strong>Battery Replacement:</strong> Extended battery life</li>
+        <li><strong>Water Damage:</strong> Liquid spill recovery</li>
+      </ul>
+      <p style="margin-top: 20px;"><em>All repairs come with 3-month warranty</em></p>
     </section>
 
     <section id="network-setup" class="service-details">
       <h3>📶 Network Setup</h3>
-      <p>We help you set up reliable internet access and shared printing in offices:</p>
+      <p>Professional network solutions for businesses and homes:</p>
       <ul>
-        <li>WiFi router configuration</li>
-        <li>LAN/WAN setup</li>
-        <li>Shared printer setup</li>
-        <li>Firewall and security optimization</li>
+        <li><strong>WiFi Installation:</strong> Full coverage setup</li>
+        <li><strong>Office Networking:</strong> LAN/WAN configuration</li>
+        <li><strong>Printer Sharing:</strong> Multi-device access</li>
+        <li><strong>Security:</strong> Firewall and access control</li>
+        <li><strong>Troubleshooting:</strong> Connectivity issues</li>
       </ul>
     </section>
 
     <section id="software-support" class="service-details">
       <h3>🛠️ Software Support</h3>
-      <p>From operating system installation to software troubleshooting, we’ve got you covered:</p>
+      <p>Complete software solutions and troubleshooting:</p>
       <ul>
-        <li>Windows/Linux OS installation</li>
-        <li>Antivirus & malware removal</li>
-        <li>Software updates and license activation</li>
-        <li>Email and office suite setup</li>
+        <li><strong>OS Installation:</strong> Windows, Linux, macOS</li>
+        <li><strong>Virus Removal:</strong> Malware eradication</li>
+        <li><strong>Driver Updates:</strong> Optimal hardware performance</li>
+        <li><strong>Software Setup:</strong> Office suites, specialized apps</li>
+        <li><strong>System Optimization:</strong> Speed up your computer</li>
       </ul>
     </section>
 
     <section id="data-recovery" class="service-details">
       <h3>💾 Data Recovery</h3>
-      <p>Recover lost files from damaged or corrupted storage devices:</p>
+      <p>Retrieve your valuable data from damaged devices:</p>
       <ul>
-        <li>Hard drive recovery</li>
-        <li>Formatted USB/SD card recovery</li>
-        <li>RAID and NAS recovery</li>
-        <li>File backup and transfer</li>
+        <li><strong>Hard Drive Recovery:</strong> Failed or corrupted drives</li>
+        <li><strong>Accidental Deletion:</strong> Formatted devices</li>
+        <li><strong>RAID Recovery:</strong> Server data restoration</li>
+        <li><strong>Backup Solutions:</strong> Prevent future data loss</li>
       </ul>
     </section>
   </div>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" style="background: #e3f2fd; padding: 60px 20px;">
     <div class="container">
-      <h2>About Us</h2>
-      <p>Champglad Technology Limited is a CAC-registered company (RC: 1530856) based in Computer Village, Ikeja, Lagos. We specialize in delivering reliable, affordable, and professional ICT services for schools, businesses, and organizations across Nigeria.</p>
+      <h2 style="text-align:center;">About Champglad Technology</h2>
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p>Champglad Technology Limited (RC: 1530856) is a Lagos-based ICT solutions provider with over 5 years of experience serving businesses and individuals across Nigeria. Our certified technicians deliver reliable, affordable repairs with warranty-backed service.</p>
+        
+        <div style="display: flex; justify-content: center; gap: 30px; margin-top: 30px; flex-wrap: wrap;">
+          <div style="text-align: center;">
+            <div style="font-size: 2em; color: #0d47a1; font-weight: bold;">500+</div>
+            <div>Devices Repaired</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2em; color: #0d47a1; font-weight: bold;">3M</div>
+            <div>Warranty Period</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2em; color: #0d47a1; font-weight: bold;">24H</div>
+            <div>Emergency Service</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
-      <h2>Contact Us</h2>
-      <form action="https://formspree.io/f/champglad@gmail.com"  method="POST">
+      <h2 style="text-align:center;">Contact Us</h2>
+      <p style="text-align:center; margin-bottom: 40px;">Get in touch for repairs or inquiries</p>
+      
+      <form id="contact-form" action="https://formspree.io/f/xwpbkvaa" method="POST">
         <div class="form-control">
-          <label>Your Name</label>
-          <input type="text" name="name" required>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
         </div>
+        
         <div class="form-control">
-          <label>Your Email</label>
-          <input type="email" name="email" required>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
         </div>
+        
         <div class="form-control">
-          <label>Message</label>
-          <textarea name="message" required></textarea>
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
         </div>
-        <div style="text-align: center;">
-          <button type="submit">Send Message</button>
+        
+        <div class="form-control">
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Computer Repair">Computer Repair</option>
+            <option value="Network Setup">Network Setup</option>
+            <option value="Data Recovery">Data Recovery</option>
+            <option value="Software Support">Software Support</option>
+            <option value="Other">Other Inquiry</option>
+          </select>
         </div>
+        
+        <div class="form-control">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        
+        <input type="hidden" name="_subject" value="New Contact Request - Champglad Tech">
+        <input type="hidden" name="_replyto" value="champglad@gmail.com">
+        
+        <button type="submit">Send Message</button>
+        
+        <div id="form-status"></div>
       </form>
 
-      <div id="form-success">Thank you! We'll get back to you soon.</div>
-
-      <div style="text-align:center;margin-top:30px;">
-        <p><strong>Or reach us directly:</strong></p>
-        <p>📧 champglad@gmail.com | 📞 07066193090</p>
+      <div style="text-align:center; margin-top: 50px;">
+        <h3>Visit Our Shop</h3>
         <p>📍 8 Ola Ayeni Street, Computer Village, Ikeja, Lagos</p>
-        <a href="https://wa.me/2347066193090"  target="_blank" class="whatsapp-button">💬 Chat on WhatsApp</a>
+        <p>📞 07066193090 (Call/WhatsApp)</p>
+        <p>📧 champglad@gmail.com</p>
+        <p>🕒 Mon-Sat: 9AM - 6PM</p>
+        
+        <a href="https://wa.me/2347066193090" target="_blank" class="whatsapp-button">
+          💬 Chat on WhatsApp
+        </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <script>
-      document.write('&copy; ' + new Date().getFullYear() + ' Champglad Technology Limited. All rights reserved.');
-    </script>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Champglad Technology Limited. RC: 1530856</p>
+    <p style="margin-top: 10px;">Professional ICT Services in Lagos, Nigeria</p>
   </footer>
 
   <!-- Live Chat - Tawk.to -->
@@ -337,8 +449,9 @@
     })();
   </script>
 
-  <!-- Smooth Scroll Script -->
+  <!-- Form Submission Script -->
   <script>
+    // Smooth scrolling for service cards
     document.querySelectorAll('.service-card').forEach(card => {
       card.addEventListener('click', function() {
         const targetId = this.getAttribute('data-target');
@@ -349,14 +462,41 @@
       });
     });
 
-    // Form Success Message
-    const form = document.querySelector('form');
-    const success = document.getElementById('form-success');
-    form?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      form.style.display = 'none';
-      success.style.display = 'block';
-    });
+    // Form submission handler
+    const form = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        formStatus.textContent = 'Sending your message...';
+        formStatus.className = '';
+        formStatus.style.display = 'block';
+        
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            formStatus.textContent = 'Message sent successfully! We will contact you shortly.';
+            formStatus.className = 'success';
+            form.reset();
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (error) {
+          formStatus.textContent = 'Error sending message. Please call us directly at 07066193090 or WhatsApp.';
+          formStatus.className = 'error';
+        }
+      });
+    }
   </script>
 
 </body>
