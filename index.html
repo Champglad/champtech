@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champglad Technology - Laptop & iPhone Services</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #f4f4f4;
+            --text-color: #333;
+            --accent-color: #ff6f61;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background: var(--secondary-color);
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1200x400') no-repeat center/cover;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #ffffff; /* Changed for better visibility */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Increased shadow for contrast */
+        }
+
+        .services, .contact {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2, .contact h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact button {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .contact button:hover {
+            background: var(--accent-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Champglad Technology Limited</h1>
+        <p>Your Trusted Partner for Device Repairs & Sales</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h2>Expert Repairs & Quality Devices</h2>
+        <p>From laptop repairs to iPhone sales and data recovery, we’ve got you covered!</p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Laptop & PC Repair</h3>
+                <p>Professional repair services for laptops, PCs, and Macs, fixing hardware and software issues.</p>
+            </div>
+            <div class="service-card">
+                <h3>iPhone & Laptop Sales</h3>
+                <p>High-quality used and new iPhones and laptops at competitive prices.</p>
+            </div>
+            <div class="service-card">
+                <h3>Data Recovery</h3>
+                <p>Recover lost data from damaged or corrupted devices with our expert solutions.</p>
+            </div>
+            <div class="service-card">
+                <h3>Software Installation & Sales</h3>
+                <p>Professional software installation and licensed software sales for your devices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Reach out for inquiries or to schedule a service!</p>
+        <form action="https://formspree.io/f/xwpbkvaa" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Champglad Technology Limited. RC 1530856. All rights reserved.</p>
+        <p>Lagos, Nigeria | Email: info@champgladtech.com | Phone: +234-XXX-XXX-XXXX</p>
+    </footer>
+</body>
+</html>
